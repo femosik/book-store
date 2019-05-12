@@ -9,7 +9,7 @@ def show_books(request):
     result = ''
 
     for book in books:
-        result += f'<a href="/books/{book.id}">{book.name}</a><hr>'
+        result += f'<a href="/books/{book.id}">{book.name}</a><br>'
 
     return HttpResponse(result)
 
