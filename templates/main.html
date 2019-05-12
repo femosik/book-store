@@ -73,7 +73,7 @@
             {% for category in categories %}
                 <div class="shapka" style="width: 90%">
                     <a href="/categories/{{ category.id }}">
-                        <li class="text1">{{ category.name }}</li>
+                        <span class="text1">{{ category.name }}</span>
                     </a>
                 </div>
             {% endfor %}
@@ -89,7 +89,6 @@
                         </a>
                             <span class="description">{{ book.description }}</span>
                     </div>
-
                 </div>
             {% endfor %}
     </div>

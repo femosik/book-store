@@ -18,42 +18,49 @@
             color: #262626;
             margin-left: 10px;
         }
-        .mainText{
+        .description{
             font-family: 'Oswald', sans-serif;
-            font-size: 25px;
-            color: white;
+            font-size: 14px;
+            color: #808080;
         }
         .logo{
             color: #262626;
             font-size: 50px;
             margin-left: 50px;
         }
-        .logo1{
-            color: #262626;
-            font-size: 50px;
-            margin-right: 25px;
-        }
         .mainImg{
-            height: 500px;
+            height: 175px;
             width: auto;
             margin: 10px;
-            box-shadow: 2px 2px 5px black;
+            float: left;
         }
         .button{
             font-family: 'Oswald', sans-serif;
             font-size: 40px;
             color: #262626;
-            float: right;
-            margin-right: 25px;
+            margin-left: 900px;
+            transition: 0.5s ease;
+        }
+        .button1{
+            font-family: 'Oswald', sans-serif;
+            font-size: 40px;
+            color: #262626;
+            margin-left: 25px;
             transition: 0.5s ease;
         }
         .button:hover{
             font-family: 'Oswald', sans-serif;
             font-size: 45px;
             color: #262626;
-            float: right;
-            margin-right: 25px;
-            transition: 0.5s ease;;
+            margin-left: 900px;
+            transition: 0.3s ease;
+        }
+        .button1:hover{
+            font-family: 'Oswald', sans-serif;
+            font-size: 45px;
+            color: #262626;
+            margin-left: 25px;
+            transition: 0.3s ease;
         }
 
     </style>
@@ -63,14 +70,19 @@
         <i class="fas fa-book logo"></i>
         <span class="text1">{{ title }}</span>
         <a href="/" class="button">Главная</a>
-        <a href="/categories" class="button">Категории</a>
-        <a href="/books" class="button">Все книги</a>
+        <a href="/categories" class="button1">Категории</a>
+        <a href="/books" class="button1">Все книги</a>
     </div><br>
-    <img src="{{ book.img }}" class="mainImg"><br>
-    <span class="mainText">{{ book.description }}</span><br><br>
-    <div class="shapka" style="width: 25%">
-        <span class="text1">Цена: {{ book.price }}</span>
-        <i class="fas fa-ruble-sign logo1"></i>
-    </div>
+    {% for book in books %}
+        <div class="shapka" style="width: 100%; float: right;">
+            <div>
+                <a href="/books/{{ book.id }}">
+                    <img src="{{ book.img }}" class="mainImg">
+                    <span class="text1">{{ book.name }}</span><br>
+                </a>
+                <span class="description">{{ book.description }}</span>
+            </div>
+        </div>
+    {% endfor %}
 </body>
 </html>
