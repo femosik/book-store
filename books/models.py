@@ -7,3 +7,4 @@ class Book(models.Model):
     description = models.TextField(max_length=1000)
     price = models.IntegerField()
     category = models.ForeignKey(to='categories.Category', related_name='books', on_delete=models.CASCADE,)
+    img = models.CharField(max_length=150)

@@ -10,7 +10,7 @@
             background-color: white;
             min-height: 50px;
             width: 100%;
-            margin-left: 0px !important;
+            box-shadow: 2px 2px 5px black;
         }
         .text1 {
             font-family: 'Oswald', sans-serif;
@@ -29,6 +29,11 @@
             font-size: 25px;
             color: white;
         }
+        .description{
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            color: #808080;
+        }
         .logo{
             color: #262626;
             font-size: 50px;
@@ -38,6 +43,21 @@
             color: white;
             font-size: 50px;
         }
+        .categoriesBlock{
+            width: 50%;
+            float: left;
+        }
+        .bookBlock{
+            width: 50%;
+            float: right;
+        }
+        .mainImg{
+            height: 175px;
+            width: auto;
+            margin: 10px;
+            float: left;
+        }
+        
     </style>
 </head>
 <body style="background-color: #262626; margin: 1px; padding: 1px; margin-left: 30px; margin-right: 30px; ">
@@ -45,8 +65,33 @@
         <i class="fas fa-book-open logo"></i>
         <span class="text1">Books-store</span>
     </div><br>
-    <span class="mainText">The best books only with us!</span><br><br>
-    <a href="/books"><i class="fas fa-book logo1"></i><span class="text2"> All Catalog</span></a><br>
-    <a href="/categories"><i class="fas fa-address-book logo1"></i><span class="text2"> Categories</span></a>
+    <span class="mainText">Лучшие книги только у нас!</span><br><br>
+    <a href="/books"><i class="fas fa-book logo1"></i><span class="text2"> Весь каталог</span></a><br>
+    <a href="/categories"><i class="fas fa-address-book logo1"></i><span class="text2"> Категории</span></a><br><br>
+    <div class="categoriesBlock">
+        <span class="text2">Лучшие категории</span>
+            {% for category in categories %}
+                <div class="shapka" style="width: 90%">
+                    <a href="/categories/{{ category.id }}">
+                        <li class="text1">{{ category.name }}</li>
+                    </a>
+                </div>
+            {% endfor %}
+    </div>
+    <div class="bookBlock">
+        <span class="text2">Лучшие книги</span>
+            {% for book in books %}
+                <div class="shapka" style="width: 100%; float: right;">
+                    <div>
+                        <a href="/books/{{ book.id }}">
+                            <img src="{{ book.img }}" class="mainImg">
+                            <span class="text1">{{ book.name }}</span><br>
+                        </a>
+                            <span class="description">{{ book.description }}</span>
+                    </div>
+
+                </div>
+            {% endfor %}
+    </div>
 </body>
 </html>
